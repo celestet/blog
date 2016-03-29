@@ -22,6 +22,12 @@ $(function () {
         Backendless.UserService.login(email, password, true, new Backendless.Async(userLoggedIn, gotError));
     });
    
+   $(document).on('click', '.add-blog',function(){
+         var blogScript = $("#blog-template").html();
+    var blogTemplate = Handlebars.compile(blogScript);
+    
+    $('.main-container').html(blogTemplate);
+   });
 
 });
 
