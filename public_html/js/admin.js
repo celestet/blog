@@ -28,6 +28,30 @@ $(function () {
     
     $('.main-container').html(blogTemplate);
    });
+   
+   $(document).on('submit', '.forrm-add-blog', function(event){
+       event.preventDefault();
+       
+       var data = $(this).serializeArray(),
+           title = data[0].value,
+           content = data[1].value;
+       
+       var dataStore = Backendless.Persistence.of(Posts);
+       
+       var postObject = new Posts({
+           title: title,
+           content:  content,
+           authorEmail: Backendless.UserService.getCurrentUser().email
+           
+       });
+       
+       dataStore.save(postObject);
+       
+       this.title.value = "";
+       this.content.value = "";
+       
+       
+   });
 
 });
 
