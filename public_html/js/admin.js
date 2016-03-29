@@ -67,7 +67,12 @@ function Posts (args) {
 
 function userLoggedIn(user){
     console.log("user sucessfully logged in");
-    
+    var userData;
+    if(typeof user == "string"){
+        userData = Backendless.Data.of(Backendless.User).findbyID(user);
+    } else{
+        userData = user;
+    }
     var welcomeScript = $('#welcome-template');
     var welcomeTemplate = Handlebars.compile(welcomeScript);
     var welcomeHTML = welcomeTemplate(user);
