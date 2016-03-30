@@ -11,7 +11,6 @@ $(function () {
     }else{
     var loginScript = $("#login-template").html();
     var loginTemplate = Handlebars.compile(loginScript);
-    
     $('.main-container').html(loginTemplate);
 }
     
@@ -55,6 +54,14 @@ $(function () {
        
        
    });
+   
+   $(document).on('click', 'logout', function(){
+       Backendless.UserService.logout(new Backendless.Async(userLoggedOut, gotError));
+       
+        var loginScript = $("#login-template").html();
+    var loginTemplate = Handlebars.compile(loginScript);
+    $('.main-container').html(loginTemplate);
+   });
 
 });
 
@@ -78,6 +85,10 @@ function userLoggedIn(user){
     var welcomeHTML = welcomeTemplate(user);
     
     $('.main-container').html(welcomeHTML);
+}
+
+function userLoggedOut(){
+    console.log("sucessfully logged out");
 }
 
 function gotError(error){
