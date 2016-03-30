@@ -76,7 +76,7 @@ function userLoggedIn(user){
     console.log("user sucessfully logged in");
     var userData;
     if(typeof user == "string"){
-        userData = Backendless.Data.of(Backendless.User).findbyID(user);
+        userData = Backendless.Data.of(Backendless.User).findById(user);
     } else{
         userData = user;
     }
