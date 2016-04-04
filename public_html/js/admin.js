@@ -7,7 +7,7 @@ $(function () {
     
    
     if(Backendless.UserService.isValidLogin){
-        userLoggedIn(Backendless.LocalCache.get("current-user-id"));
+        /*userLoggedIn(Backendless.LocalCache.get("current-user-id"));*/
     }else{
     var loginScript = $("#login-template").html();
     var loginTemplate = Handlebars.compile(loginScript);
@@ -72,7 +72,7 @@ function Posts (args) {
     this.authorEmail = args.authorEmail || "";
 }
 
-function userLoggedIn(user){
+/*function userLoggedIn(user){
     console.log("user sucessfully logged in");
     var userData;
     if(typeof user == "string"){
@@ -89,12 +89,12 @@ function userLoggedIn(user){
 
 function userLoggedOut(){
     console.log("sucessfully logged out");
-}
+}*/
 
 function gotError(error){
     console.log("Error message - " + error.message);
     console.log("Error code - " + error.message);
-    
+    Materialize.toast('Incorrect username or password', 4000)
 }
 
 
