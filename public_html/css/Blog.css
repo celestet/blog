@@ -24,12 +24,15 @@ main{
     font-style: italic;
 }
 
+
 a{
     font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
 }
 
 nav{
-    background-color: #0059bc;
+    background-color: #0091ea;
+    position:fixed;
 }
 
 
@@ -42,16 +45,30 @@ ul {
 
 li a {
     display: block;
-    color: #000;
+    color: white;
     padding: 8px 0 8px 16px;
     text-decoration: none;
+    font-size: 20px;
 }
+
+.sidebar{
+    position: fixed;
+    height: 90%;
+    bottom: 0;
+    left: 0;
+    padding-right: 10%;
+}
+
+/*footer{
+    position: fixed;
+}*/
 
 /* Change the link color on hover */
 li a:hover {
     background-color: #555;
-    color: white;
+    color: black;
 }
+
 
 
       
